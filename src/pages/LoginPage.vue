@@ -50,7 +50,6 @@ export default {
           email: email.value,
           password: password.value,
         });
-        console.log(response);
         success.value = 'Login successful!';
 
         //  store the token and user info
@@ -60,7 +59,7 @@ export default {
         // Redirect to  home page
 
           router.push('/');
-        
+
       } catch (err) {
         error.value = 'Login failed: ' + (err);
       }

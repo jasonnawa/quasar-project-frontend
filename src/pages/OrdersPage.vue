@@ -104,11 +104,6 @@ type Orders = Order[];
         const id = localStorage.getItem('userId');
         const response = await api.get<Orders>(`/orders/${id}`);
         Orders.value = response.data;
-        console.log('cart', response.data);
-        //if (Orders.value.items.length === 0) {
-          //const isActive = ref(true);
-          //console.log(isActive, 'isActive');
-        //}
       } catch (error) {
         console.error('Error fetching cart:', error);
       }

@@ -93,7 +93,6 @@ export default defineComponent({
       try {
         const response = await api.get<Product[]>('/products'); // Replace with your product API URL
         products.value = response.data;
-        console.log('products', response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -104,7 +103,6 @@ export default defineComponent({
         const id = localStorage.getItem('userId');
         const response = await api.get<Cart>(`/cart/${id}`);
         cart.value = response.data;
-        console.log('cart', response.data);
         if (cart.value.items.length === 0) {
           const isActive = ref(true);
           console.log(isActive, 'isActive');
@@ -119,7 +117,6 @@ export default defineComponent({
         const id = localStorage.getItem('userId');
         const response = await api.post<Cart>(`/cart/add/${id}/${product}`);
         cart.value = response.data;
-        console.log('cart', response.data);
       } catch (error) {
         console.error('Error fetching cart:', error);
       }
@@ -132,7 +129,6 @@ export default defineComponent({
           `/cart/remove/${id}/${product}`
         );
         cart.value = response.data;
-        console.log('cart', response.data);
       } catch (error) {
         console.error('Error fetching cart:', error);
       }

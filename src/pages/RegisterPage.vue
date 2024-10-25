@@ -57,10 +57,6 @@ export default {
       success.value = '';
 
       try {
-        console.log('clicked');
-        console.log(
-          `email: ${email.value}, phone: ${phoneNumber.value}, password : ${password.value}`
-        );
         const response = await api.post('auth/register', {
           email: email.value,
           phoneNumber: `+234${phoneNumber.value}`,
@@ -70,9 +66,9 @@ export default {
         success.value = 'Registration successful!';
         // Redirect to login page
         setTimeout(() => {
-          router.push('/login'); // Adjust the route according to your structure
-        }, 1000); // Optional: Add a delay before redirecting
-        // =reset the form
+          router.push('/login');
+        }, 1000);
+        
         email.value = '';
         phoneNumber.value = '';
         password.value = '';
